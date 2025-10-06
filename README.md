@@ -17,7 +17,7 @@ Desenvolver um sistema automatizado de irrigação capaz de controlar a bomba d�
 | **Switch N, P, K** | Representam nutrientes Nitrogênio, Fósforo e Potássio | N → 18, P → 19, K → 21 |
 
 ---
-
+![Circuito completo no Wokwi](imagens/circuito_wokwi.png)
 ## ⚙️ Funcionamento
 - O **DHT22** lê a umidade do solo.  
 - O **LDR** simula o **nível de pH** (quanto menor a luz, menor o pH).  
@@ -45,6 +45,27 @@ Ele inclui:
 - Controle de debouncing para os switches  
 - Função de leitura e média móvel de umidade  
 - Interface via **Serial Monitor** (JSON outputs)
+
+---
+
+## 🧪 Testes e Logs de Simulação
+
+Durante a simulação no Wokwi, o sistema foi testado em diferentes cenários para validar o comportamento da irrigação automatizada.
+
+| Cenário | Umidade (%) | pH | N | P | K | Chuva | Bomba |
+|----------|-------------|----|---|---|---|--------|--------|
+| Solo seco, NPK ativo, sem chuva | 13.5 | 6.34 | ✅ | ✅ | ✅ | ❌ | 💧 Ligada |
+| Umidade moderada, chuva prevista | 45.6 | 6.34 | ✅ | ✅ | ✅ | ✅ | ⛔ Desligada |
+| Solo seco, NPK ativo, chuva ausente | 0.0 | 6.34 | ✅ | ✅ | ✅ | ❌ | 💧 Ligada |
+| Umidade alta (>45%) | 67.0 | 6.34 | ✅ | ✅ | ✅ | ❌ | ⛔ Desligada |
+
+📄 **Arquivo completo:** [`testes/logs.txt`](./testes/logs.txt)
+
+Exemplo de registros do Serial Monitor:
+```json
+{"umid":13.5,"ph":6.34,"N":true,"P":true,"K":true,"chuva":false,"bomba":true}
+{"umid":45.6,"ph":6.34,"N":true,"P":true,"K":true,"chuva":true,"bomba":false}
+{"umid":0.0,"ph":6.34,"N":true,"P":true,"K":true,"chuva":false,"bomba":true}
 
 ---
 
