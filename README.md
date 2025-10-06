@@ -66,7 +66,7 @@ Exemplo de registros do Serial Monitor:
 {"umid":13.5,"ph":6.34,"N":true,"P":true,"K":true,"chuva":false,"bomba":true}
 {"umid":45.6,"ph":6.34,"N":true,"P":true,"K":true,"chuva":true,"bomba":false}
 {"umid":0.0,"ph":6.34,"N":true,"P":true,"K":true,"chuva":false,"bomba":true}
-
+```
 ---
 
 ## 🔬 Simulação
