@@ -1,0 +1,35 @@
+Logs coletados durante os testes de simulação (modo RUN)
+
+=== 0) Inicialização ===
+{"status":"start","hint":"P=pause C=continue S=step V=verbose F=force R1/R0=chuva"}
+
+=== 1) Solo ainda não apto: pH alto (≈10.6), NPK=TRUE, umidade caindo — bomba NÃO liga ===
+{"umid":40.0,"ph":10.58,"N":true,"P":true,"K":true,"chuva":false,"bomba":false}
+{"umid":35.9,"ph":10.58,"N":true,"P":true,"K":true,"chuva":false,"bomba":false}
+{"umid":31.8,"ph":10.58,"N":true,"P":true,"K":true,"chuva":false,"bomba":false}
+{"umid":27.7,"ph":10.58,"N":true,"P":true,"K":true,"chuva":false,"bomba":false}
+{"umid":23.6,"ph":10.58,"N":true,"P":true,"K":true,"chuva":false,"bomba":false}
+{"umid":19.5,"ph":10.58,"N":true,"P":true,"K":true,"chuva":false,"bomba":false}
+
+=== 2) Desativando nutrientes (NPK FALSE) para demonstrar bloqueio ===
+{"umid":19.5,"ph":10.58,"N":false,"P":true,"K":true,"chuva":false,"bomba":false}
+{"umid":19.5,"ph":10.58,"N":false,"P":false,"K":true,"chuva":false,"bomba":false}
+{"umid":19.5,"ph":10.58,"N":false,"P":false,"K":false,"chuva":false,"bomba":false}
+
+=== 3) Ajustando pH para a faixa ideal (≈6.0–6.8), NPK ainda FALSE — bomba NÃO liga ===
+{"umid":19.5,"ph":8.98,"N":false,"P":false,"K":false,"chuva":false,"bomba":false}
+{"umid":19.5,"ph":7.23,"N":false,"P":false,"K":false,"chuva":false,"bomba":false}
+{"umid":19.5,"ph":6.00,"N":false,"P":false,"K":false,"chuva":false,"bomba":false}
+{"umid":19.5,"ph":6.11,"N":false,"P":false,"K":false,"chuva":false,"bomba":false}
+
+=== 4) Ativando NPK (TRUE) com pH ideal e umidade baixa — bomba LIGA ===
+{"umid":19.5,"ph":6.11,"N":true,"P":false,"K":false,"chuva":false,"bomba":false}
+{"umid":19.5,"ph":6.11,"N":true,"P":true,"K":false,"chuva":false,"bomba":false}
+{"umid":19.5,"ph":6.11,"N":true,"P":true,"K":true,"chuva":false,"bomba":true}
+
+=== 5) Teste de chuva: ativa (R1) deve desligar; desativa (R0) deve religar ===
+{"cmd":"previsaoChuva","value":false}
+{"cmd":"previsaoChuva","value":true}
+{"umid":19.5,"ph":6.11,"N":true,"P":true,"K":true,"chuva":true,"bomba":false}   <-- desligou com chuva
+{"cmd":"previsaoChuva","value":false}
+{"umid":19.5,"ph":6.11,"N":true,"P":true,"K":true,"chuva":false,"bomba":true}   <-- religou sem chuva
