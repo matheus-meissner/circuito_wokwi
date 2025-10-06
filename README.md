@@ -1,5 +1,6 @@
 # 🌱 FarmTech Solutions – Fase 2
 Sistema de Irrigação Inteligente com ESP32
+![Circuito completo no Wokwi](imagens/circuito_wokwi.png)
 
 ## 🎯 Objetivo
 Desenvolver um sistema automatizado de irrigação capaz de controlar a bomba d’água com base em sensores de umidade, luminosidade (pH simulado) e nutrientes (NPK), representando um sistema IoT agrícola.
@@ -17,7 +18,7 @@ Desenvolver um sistema automatizado de irrigação capaz de controlar a bomba d�
 | **Switch N, P, K** | Representam nutrientes Nitrogênio, Fósforo e Potássio | N → 18, P → 19, K → 21 |
 
 ---
-![Circuito completo no Wokwi](imagens/circuito_wokwi.png)
+
 ## ⚙️ Funcionamento
 - O **DHT22** lê a umidade do solo.  
 - O **LDR** simula o **nível de pH** (quanto menor a luz, menor o pH).  
