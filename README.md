@@ -59,7 +59,6 @@ Os valores de umidade e pH podem ser ajustados nos sliders do DHT22 e LDR.
 👉 https://youtu.be/xX5vdG0Ofzg
 
 ---
-https://wokwi.com/projects/444000292959346689
 
 ## 🧠 Equipe FarmTech Solutions
 **Integrantes:**  
