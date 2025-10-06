@@ -1,5 +1,6 @@
 # 🌱 FarmTech Solutions – Fase 2
 Sistema de Irrigação Inteligente com ESP32
+![Circuito completo no Wokwi](imagens/circuito_wokwi.png)
 
 ## 🎯 Objetivo
 Desenvolver um sistema automatizado de irrigação capaz de controlar a bomba d’água com base em sensores de umidade, luminosidade (pH simulado) e nutrientes (NPK), representando um sistema IoT agrícola.
@@ -48,6 +49,27 @@ Ele inclui:
 
 ---
 
+## 🧪 Testes e Logs de Simulação
+
+Durante a simulação no Wokwi, o sistema foi testado em diferentes cenários para validar o comportamento da irrigação automatizada.
+
+| Cenário | Umidade (%) | pH | N | P | K | Chuva | Bomba |
+|----------|-------------|----|---|---|---|--------|--------|
+| Solo seco, NPK ativo, sem chuva | 13.5 | 6.34 | ✅ | ✅ | ✅ | ❌ | 💧 Ligada |
+| Umidade moderada, chuva prevista | 45.6 | 6.34 | ✅ | ✅ | ✅ | ✅ | ⛔ Desligada |
+| Solo seco, NPK ativo, chuva ausente | 0.0 | 6.34 | ✅ | ✅ | ✅ | ❌ | 💧 Ligada |
+| Umidade alta (>45%) | 67.0 | 6.34 | ✅ | ✅ | ✅ | ❌ | ⛔ Desligada |
+
+📄 **Arquivo completo:** [`testes/logs.txt`](./testes/logs.txt)
+
+Exemplo de registros do Serial Monitor:
+```json
+{"umid":13.5,"ph":6.34,"N":true,"P":true,"K":true,"chuva":false,"bomba":true}
+{"umid":45.6,"ph":6.34,"N":true,"P":true,"K":true,"chuva":true,"bomba":false}
+{"umid":0.0,"ph":6.34,"N":true,"P":true,"K":true,"chuva":false,"bomba":true}
+```
+---
+
 ## 🔬 Simulação
 A simulação foi feita na plataforma **[Wokwi](https://wokwi.com)** com o ESP32.  
 Os valores de umidade e pH podem ser ajustados nos sliders do DHT22 e LDR.
@@ -59,7 +81,6 @@ Os valores de umidade e pH podem ser ajustados nos sliders do DHT22 e LDR.
 👉 https://youtu.be/xX5vdG0Ofzg
 
 ---
-https://wokwi.com/projects/444000292959346689
 
 ## 🧠 Equipe FarmTech Solutions
 **Integrantes:**  
